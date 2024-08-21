@@ -1,0 +1,157 @@
+{
+    "schemaVersion": "1.0.0",
+    "packageVersion": "1.0.0",
+    "packageName": "Something the library can use to display in the UX",
+    "dependencies": [
+        {
+            "resourcePath": "/billOfMaterials",
+            "payload": {
+                "products": [
+                    {
+                        "type": "PING_ONE_BASE"
+                    },
+                    {
+                        "type": "PING_ONE_MFA"
+                    }
+                ]
+            }
+        },
+        {
+            "resourcePath": "/promotionVariableDefinitions",
+            "payload": {
+                "name": "DEVICE_POLICY_DEVICE_SELECTION"
+            }
+        },
+        {
+            "resourcePath": "/promotionVariableDefinitions",
+            "payload": {
+                "name": "DEVICE_POLICY_NAME"
+            }
+        }
+    ],
+    "snapshotResources": [
+        {
+            "action": "UPSERT",
+            "resourcePath": "/deviceAuthenticationPolicies",
+            "payload": {
+                "id": "{{__ref_deviceAuthenticationPolicies_My_awesome_MFA_policy}}",
+                "name": "{{__var_DEVICE_POLICY_NAME}}",
+                "authentication": {
+                    "deviceSelection": "{{__var_DEVICE_POLICY_DEVICE_SELECTION}}"
+                },
+                "newDeviceNotification": "NONE",
+                "sms": {
+                    "enabled": false,
+                    "pairingDisabled": false,
+                    "otp": {
+                        "failure": {
+                            "count": 3,
+                            "coolDown": {
+                                "duration": 0,
+                                "timeUnit": "MINUTES"
+                            }
+                        },
+                        "lifeTime": {
+                            "duration": 30,
+                            "timeUnit": "MINUTES"
+                        }
+                    }
+                },
+                "email": {
+                    "enabled": false,
+                    "pairingDisabled": false,
+                    "otp": {
+                        "failure": {
+                            "count": 3,
+                            "coolDown": {
+                                "duration": 0,
+                                "timeUnit": "MINUTES"
+                            }
+                        },
+                        "lifeTime": {
+                            "duration": 30,
+                            "timeUnit": "MINUTES"
+                        }
+                    }
+                },
+                "mobile": {
+                    "enabled": false,
+                    "otp": {
+                        "failure": {
+                            "count": 3,
+                            "coolDown": {
+                                "duration": 2,
+                                "timeUnit": "MINUTES"
+                            }
+                        }
+                    }
+                },
+                "totp": {
+                    "enabled": true,
+                    "pairingDisabled": false,
+                    "otp": {
+                        "failure": {
+                            "count": 3,
+                            "coolDown": {
+                                "duration": 2,
+                                "timeUnit": "MINUTES"
+                            }
+                        }
+                    }
+                },
+                "voice": {
+                    "enabled": false,
+                    "pairingDisabled": false,
+                    "otp": {
+                        "failure": {
+                            "count": 3,
+                            "coolDown": {
+                                "duration": 0,
+                                "timeUnit": "MINUTES"
+                            }
+                        },
+                        "lifeTime": {
+                            "duration": 30,
+                            "timeUnit": "MINUTES"
+                        }
+                    }
+                },
+                "fido2": {
+                    "enabled": true,
+                    "pairingDisabled": false
+                },
+                "forSignOnPolicy": false,
+                "default": false
+            }
+        },
+        {
+            "action": "UPSERT",
+            "resourcePath": "/signOnPolicies/{{__ref_signOnPolicy_Multi_Factor}}/actions",
+            "payload": {
+                "type": "MULTI_FACTOR_AUTHENTICATION",
+                "hidden": false,
+                "condition": {
+                    "secondsSince": "${session.lastSignOn.withAuthenticator.mfa.at}",
+                    "greater": 3600
+                },
+                "priority": 2,
+                "fido2": {
+                    "enabled": true
+                },
+                "deviceAuthenticationPolicy": {
+                    "id": "{{__ref_deviceAuthenticationPolicies_My_awesome_MFA_policy}}"
+                }
+            }
+        },
+        {
+            "action": "UPSERT",
+            "resourcePath": "/signOnPolicies",
+            "payload": {
+                "id": "{{__ref_signOnPolicy_Multi_Factor}}",
+                "name": "Multi_Factor",
+                "description": "A sign-on policy that requires primary username and password along with an out-of-band OTP",
+                "default": false
+            }
+        }
+    ]
+}

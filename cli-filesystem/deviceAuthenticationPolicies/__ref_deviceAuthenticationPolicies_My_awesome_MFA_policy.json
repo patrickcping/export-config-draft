@@ -1,0 +1,94 @@
+{
+    "schemaVersion": "1.0.0",
+    "resourcePath": "/deviceAuthenticationPolicies",
+    "payload": {
+        "id": "{{__ref_deviceAuthenticationPolicies_My_awesome_MFA_policy}}",
+        "name": "{{__var_DEVICE_POLICY_NAME}}",
+        "authentication": {
+            "deviceSelection": "{{__var_DEVICE_POLICY_DEVICE_SELECTION}}"
+        },
+        "newDeviceNotification": "NONE",
+        "sms": {
+            "enabled": false,
+            "pairingDisabled": false,
+            "otp": {
+                "failure": {
+                    "count": 3,
+                    "coolDown": {
+                        "duration": 0,
+                        "timeUnit": "MINUTES"
+                    }
+                },
+                "lifeTime": {
+                    "duration": 30,
+                    "timeUnit": "MINUTES"
+                }
+            }
+        },
+        "email": {
+            "enabled": false,
+            "pairingDisabled": false,
+            "otp": {
+                "failure": {
+                    "count": 3,
+                    "coolDown": {
+                        "duration": 0,
+                        "timeUnit": "MINUTES"
+                    }
+                },
+                "lifeTime": {
+                    "duration": 30,
+                    "timeUnit": "MINUTES"
+                }
+            }
+        },
+        "mobile": {
+            "enabled": false,
+            "otp": {
+                "failure": {
+                    "count": 3,
+                    "coolDown": {
+                        "duration": 2,
+                        "timeUnit": "MINUTES"
+                    }
+                }
+            }
+        },
+        "totp": {
+            "enabled": true,
+            "pairingDisabled": false,
+            "otp": {
+                "failure": {
+                    "count": 3,
+                    "coolDown": {
+                        "duration": 2,
+                        "timeUnit": "MINUTES"
+                    }
+                }
+            }
+        },
+        "voice": {
+            "enabled": false,
+            "pairingDisabled": false,
+            "otp": {
+                "failure": {
+                    "count": 3,
+                    "coolDown": {
+                        "duration": 0,
+                        "timeUnit": "MINUTES"
+                    }
+                },
+                "lifeTime": {
+                    "duration": 30,
+                    "timeUnit": "MINUTES"
+                }
+            }
+        },
+        "fido2": {
+            "enabled": true,
+            "pairingDisabled": false
+        },
+        "forSignOnPolicy": false,
+        "default": false
+    }
+}

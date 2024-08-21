@@ -1,0 +1,19 @@
+{
+    "schemaVersion": "1.0.0",
+    "resourcePath": "/signOnPolicies/{{__ref_signOnPolicy_Multi_Factor}}/actions",
+    "payload": {
+        "type": "MULTI_FACTOR_AUTHENTICATION",
+        "hidden": false,
+        "condition": {
+            "secondsSince": "${session.lastSignOn.withAuthenticator.mfa.at}",
+            "greater": 3600
+        },
+        "priority": 2,
+        "fido2": {
+            "enabled": true
+        },
+        "deviceAuthenticationPolicy": {
+            "id": "{{__ref_deviceAuthenticationPolicies_My_awesome_MFA_policy}}"
+        }
+    }
+}
