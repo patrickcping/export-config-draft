@@ -21,3 +21,11 @@ Key points:
     - Provides a boolean `update_platform_variable` to tell the import API this should be the new variable value.
 - `schemaVersion` allows the import API to properly interpret and handle past and future exports formats cleanly.  Allows clients to apply version specific validation.  Allows correction on import for breaking changes to the API.
 - `dependencies` allows the import API and clients to ensure pre-reqs for import can be flagged up and fulfilled, such as Bill of Materals, environment type etc.
+
+The API would:
+
+- Create the relevant mappings in the target system for PUT based on `targetExistingResources`
+- Fill the variable values (`{{__var_*}}` with values in the target environment `/promotionVariableDefinitions` unless there is an explicit override in the import request)
+- Ensure the `dependencies` are fulfilled as pre-reqs in the environment, error if not.
+- Parse the payload according to the schema definition referenced in the `schemaVersion` field
+- When a resource with an `id` field with a ref value `{{__ref_*}}` is created, it goes and fills that resulting ID to the dependent configuration

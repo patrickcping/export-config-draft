@@ -2,11 +2,6 @@
     "schemaVersion": "1.0.0",
     "importVariableValues": [
         {
-            "name": "DEVICE_POLICY_DEVICE_SELECTION",
-            "value": "PROMPT_BEFORE_WHATEVER",
-            "override_platform_variable": false
-        },
-        {
             "name": "DEVICE_POLICY_NAME",
             "value": "My awesome MFA policy",
             "override_platform_variable": true,
