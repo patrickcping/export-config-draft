@@ -27,5 +27,5 @@ The API would:
 - Create the relevant mappings in the target system for PUT based on `targetExistingResources`
 - Fill the variable values (`{{__var_*}}` with values in the target environment `/promotionVariableDefinitions` unless there is an explicit override in the import request)
 - Ensure the `dependencies` are fulfilled as pre-reqs in the environment, error if not.
-- Parse the payload according to the schema definition referenced in the `schemaVersion` field
+- Parse the import schema according to the schema definition referenced in the `schemaVersion` field
 - When a resource with an `id` field with a ref value `{{__ref_*}}` is created, it goes and fills that resulting ID to the dependent configuration
