@@ -1,0 +1,1416 @@
+{
+  "schemaVersion": "1.0.0",
+  "packageVersion": "1.0.0",
+  "packageName": "Example snapshot created from a PingFederate export",
+  "snapshotSource": {
+    "type": "PING_FEDERATE_ADMIN_API",
+    "version": "11.3.1.0",
+    "created": "2024-08-27T18:31:07.131+00:00",
+    "location": "https://pingfederate-admin-facile-migration-assistant.ping-devops.com/pf-admin-api/v1"
+  },
+  "dependencies": [
+    {
+      "resourcePath": "/idp/spConnections",
+      "payload": {
+        "products": [
+          {
+            "type": "PING_FEDERATE"
+          }
+        ]
+      }
+    },
+    {
+      "resourcePath": "/oauth/clients",
+      "payload": {
+        "products": [
+          {
+            "type": "PING_FEDERATE"
+          }
+        ]
+      }
+    }
+  ],
+  "snapshotResources": [
+    {
+      "action": "EXPORT",
+      "resourcePath": "/idp/spConnections",
+      "payload": {
+        "items": [
+          {
+            "type": "SP",
+            "id": "Sample-Verify",
+            "name": "Sample Verify",
+            "entityId": "Sample-Verify",
+            "active": true,
+            "contactInfo": {},
+            "loggingMode": "STANDARD",
+            "virtualEntityIds": [],
+            "credentials": {
+              "certs": [],
+              "signingSettings": {
+                "signingKeyPairRef": {
+                  "id": "signing-cert",
+                  "location": "https://pingfederate-admin-facile-migration-assistant.ping-devops.com/pf-admin-api/v1/keyPairs/signing/signing-cert"
+                },
+                "algorithm": "SHA256withRSA",
+                "includeCertInSignature": false,
+                "includeRawKeyInSignature": false
+              }
+            },
+            "extendedProperties": {
+              "authNexp": {
+                "values": [
+                  "Verify"
+                ]
+              }
+            },
+            "modificationDate": "2023-11-06T18:49:51.691Z",
+            "creationDate": "2023-11-06T18:49:51.691Z",
+            "spBrowserSso": {
+              "protocol": "SAML20",
+              "enabledProfiles": [
+                "IDP_INITIATED_SSO"
+              ],
+              "ssoApplicationEndpoint": "https://facile-migration-assistant.ping-devops.com/idp/startSSO.ping?PartnerSpId=Sample-Verify",
+              "ssoServiceEndpoints": [
+                {
+                  "binding": "POST",
+                  "url": "https://decoder.pingidentity.cloud/saml",
+                  "isDefault": true,
+                  "index": 0
+                }
+              ],
+              "signAssertions": false,
+              "signResponseAsRequired": true,
+              "spSamlIdentityMapping": "STANDARD",
+              "requireSignedAuthnRequests": false,
+              "assertionLifetime": {
+                "minutesBefore": 5,
+                "minutesAfter": 5
+              },
+              "encryptionPolicy": {
+                "encryptAssertion": false,
+                "encryptSloSubjectNameId": false,
+                "sloSubjectNameIDEncrypted": false,
+                "encryptedAttributes": []
+              },
+              "attributeContract": {
+                "coreAttributes": [
+                  {
+                    "name": "SAML_SUBJECT",
+                    "nameFormat": "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"
+                  }
+                ],
+                "extendedAttributes": [
+                  {
+                    "name": "firstname",
+                    "nameFormat": "urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"
+                  },
+                  {
+                    "name": "ImmutableID",
+                    "nameFormat": "urn:oasis:names:tc:SAML:2.0:attrname-format:basic"
+                  },
+                  {
+                    "name": "mail",
+                    "nameFormat": "urn:oasis:names:tc:SAML:2.0:attrname-format:basic"
+                  },
+                  {
+                    "name": "lastname",
+                    "nameFormat": "urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"
+                  }
+                ]
+              },
+              "adapterMappings": [],
+              "authenticationPolicyContractAssertionMappings": [
+                {
+                  "attributeSources": [],
+                  "attributeContractFulfillment": {
+                    "firstname": {
+                      "source": {
+                        "type": "AUTHENTICATION_POLICY_CONTRACT"
+                      },
+                      "value": "firstName"
+                    },
+                    "ImmutableID": {
+                      "source": {
+                        "type": "AUTHENTICATION_POLICY_CONTRACT"
+                      },
+                      "value": "ImmutableID"
+                    },
+                    "mail": {
+                      "source": {
+                        "type": "AUTHENTICATION_POLICY_CONTRACT"
+                      },
+                      "value": "mail"
+                    },
+                    "SAML_SUBJECT": {
+                      "source": {
+                        "type": "AUTHENTICATION_POLICY_CONTRACT"
+                      },
+                      "value": "subject"
+                    },
+                    "lastname": {
+                      "source": {
+                        "type": "AUTHENTICATION_POLICY_CONTRACT"
+                      },
+                      "value": "lastName"
+                    }
+                  },
+                  "issuanceCriteria": {
+                    "conditionalCriteria": []
+                  },
+                  "authenticationPolicyContractRef": {
+                    "id": "samplePolicyContract",
+                    "location": "https://pingfederate-admin-facile-migration-assistant.ping-devops.com/pf-admin-api/v1/authenticationPolicyContracts/samplePolicyContract"
+                  },
+                  "restrictVirtualEntityIds": false,
+                  "restrictedVirtualEntityIds": [],
+                  "abortSsoTransactionAsFailSafe": false
+                }
+              ]
+            },
+            "applicationName": "Sample-SAML",
+            "connectionTargetType": "STANDARD"
+          },
+          {
+            "type": "SP",
+            "id": "Sample-Passwordless",
+            "name": "Sample Passwordless",
+            "entityId": "Sample-Passwordless",
+            "active": true,
+            "contactInfo": {},
+            "loggingMode": "STANDARD",
+            "virtualEntityIds": [],
+            "credentials": {
+              "certs": [],
+              "signingSettings": {
+                "signingKeyPairRef": {
+                  "id": "signing-cert",
+                  "location": "https://pingfederate-admin-facile-migration-assistant.ping-devops.com/pf-admin-api/v1/keyPairs/signing/signing-cert"
+                },
+                "algorithm": "SHA256withRSA",
+                "includeCertInSignature": false,
+                "includeRawKeyInSignature": false
+              }
+            },
+            "extendedProperties": {
+              "authNexp": {
+                "values": [
+                  "Passwordless"
+                ]
+              }
+            },
+            "modificationDate": "2023-11-06T18:49:30.437Z",
+            "creationDate": "2023-11-06T18:49:30.437Z",
+            "spBrowserSso": {
+              "protocol": "SAML20",
+              "enabledProfiles": [
+                "IDP_INITIATED_SSO"
+              ],
+              "ssoApplicationEndpoint": "https://facile-migration-assistant.ping-devops.com/idp/startSSO.ping?PartnerSpId=Sample-Passwordless",
+              "ssoServiceEndpoints": [
+                {
+                  "binding": "POST",
+                  "url": "https://decoder.pingidentity.cloud/saml",
+                  "isDefault": true,
+                  "index": 0
+                }
+              ],
+              "signAssertions": false,
+              "signResponseAsRequired": true,
+              "spSamlIdentityMapping": "STANDARD",
+              "requireSignedAuthnRequests": false,
+              "assertionLifetime": {
+                "minutesBefore": 5,
+                "minutesAfter": 5
+              },
+              "encryptionPolicy": {
+                "encryptAssertion": false,
+                "encryptSloSubjectNameId": false,
+                "sloSubjectNameIDEncrypted": false,
+                "encryptedAttributes": []
+              },
+              "attributeContract": {
+                "coreAttributes": [
+                  {
+                    "name": "SAML_SUBJECT",
+                    "nameFormat": "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"
+                  }
+                ],
+                "extendedAttributes": [
+                  {
+                    "name": "firstname",
+                    "nameFormat": "urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"
+                  },
+                  {
+                    "name": "ImmutableID",
+                    "nameFormat": "urn:oasis:names:tc:SAML:2.0:attrname-format:basic"
+                  },
+                  {
+                    "name": "mail",
+                    "nameFormat": "urn:oasis:names:tc:SAML:2.0:attrname-format:basic"
+                  },
+                  {
+                    "name": "lastname",
+                    "nameFormat": "urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"
+                  }
+                ]
+              },
+              "adapterMappings": [],
+              "authenticationPolicyContractAssertionMappings": [
+                {
+                  "attributeSources": [],
+                  "attributeContractFulfillment": {
+                    "firstname": {
+                      "source": {
+                        "type": "AUTHENTICATION_POLICY_CONTRACT"
+                      },
+                      "value": "firstName"
+                    },
+                    "ImmutableID": {
+                      "source": {
+                        "type": "AUTHENTICATION_POLICY_CONTRACT"
+                      },
+                      "value": "ImmutableID"
+                    },
+                    "mail": {
+                      "source": {
+                        "type": "AUTHENTICATION_POLICY_CONTRACT"
+                      },
+                      "value": "mail"
+                    },
+                    "SAML_SUBJECT": {
+                      "source": {
+                        "type": "AUTHENTICATION_POLICY_CONTRACT"
+                      },
+                      "value": "subject"
+                    },
+                    "lastname": {
+                      "source": {
+                        "type": "AUTHENTICATION_POLICY_CONTRACT"
+                      },
+                      "value": "lastName"
+                    }
+                  },
+                  "issuanceCriteria": {
+                    "conditionalCriteria": []
+                  },
+                  "authenticationPolicyContractRef": {
+                    "id": "samplePolicyContract",
+                    "location": "https://pingfederate-admin-facile-migration-assistant.ping-devops.com/pf-admin-api/v1/authenticationPolicyContracts/samplePolicyContract"
+                  },
+                  "restrictVirtualEntityIds": false,
+                  "restrictedVirtualEntityIds": [],
+                  "abortSsoTransactionAsFailSafe": false
+                }
+              ]
+            },
+            "applicationName": "Sample-SAML",
+            "connectionTargetType": "STANDARD"
+          },
+          {
+            "type": "SP",
+            "id": "Sample-Widget",
+            "name": "Sample Widget",
+            "entityId": "Sample-Widget",
+            "active": true,
+            "contactInfo": {},
+            "loggingMode": "STANDARD",
+            "virtualEntityIds": [],
+            "credentials": {
+              "certs": [],
+              "signingSettings": {
+                "signingKeyPairRef": {
+                  "id": "signing-cert",
+                  "location": "https://pingfederate-admin-facile-migration-assistant.ping-devops.com/pf-admin-api/v1/keyPairs/signing/signing-cert"
+                },
+                "algorithm": "SHA256withRSA",
+                "includeCertInSignature": false,
+                "includeRawKeyInSignature": false
+              }
+            },
+            "extendedProperties": {
+              "authNexp": {
+                "values": [
+                  "Single_Factor"
+                ]
+              },
+              "useAuthApi": {
+                "values": [
+                  "y"
+                ]
+              }
+            },
+            "modificationDate": "2023-11-06T18:49:13.169Z",
+            "creationDate": "2023-11-06T18:49:13.169Z",
+            "spBrowserSso": {
+              "protocol": "SAML20",
+              "enabledProfiles": [
+                "IDP_INITIATED_SSO"
+              ],
+              "ssoApplicationEndpoint": "https://facile-migration-assistant.ping-devops.com/idp/startSSO.ping?PartnerSpId=Sample-Widget",
+              "ssoServiceEndpoints": [
+                {
+                  "binding": "POST",
+                  "url": "https://decoder.pingidentity.cloud/saml",
+                  "isDefault": true,
+                  "index": 0
+                }
+              ],
+              "signAssertions": false,
+              "signResponseAsRequired": true,
+              "spSamlIdentityMapping": "STANDARD",
+              "requireSignedAuthnRequests": false,
+              "assertionLifetime": {
+                "minutesBefore": 5,
+                "minutesAfter": 5
+              },
+              "encryptionPolicy": {
+                "encryptAssertion": false,
+                "encryptSloSubjectNameId": false,
+                "sloSubjectNameIDEncrypted": false,
+                "encryptedAttributes": []
+              },
+              "attributeContract": {
+                "coreAttributes": [
+                  {
+                    "name": "SAML_SUBJECT",
+                    "nameFormat": "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"
+                  }
+                ],
+                "extendedAttributes": [
+                  {
+                    "name": "firstname",
+                    "nameFormat": "urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"
+                  },
+                  {
+                    "name": "ImmutableID",
+                    "nameFormat": "urn:oasis:names:tc:SAML:2.0:attrname-format:basic"
+                  },
+                  {
+                    "name": "mail",
+                    "nameFormat": "urn:oasis:names:tc:SAML:2.0:attrname-format:basic"
+                  },
+                  {
+                    "name": "lastname",
+                    "nameFormat": "urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"
+                  }
+                ]
+              },
+              "adapterMappings": [],
+              "authenticationPolicyContractAssertionMappings": [
+                {
+                  "attributeSources": [],
+                  "attributeContractFulfillment": {
+                    "firstname": {
+                      "source": {
+                        "type": "AUTHENTICATION_POLICY_CONTRACT"
+                      },
+                      "value": "firstName"
+                    },
+                    "ImmutableID": {
+                      "source": {
+                        "type": "AUTHENTICATION_POLICY_CONTRACT"
+                      },
+                      "value": "ImmutableID"
+                    },
+                    "mail": {
+                      "source": {
+                        "type": "AUTHENTICATION_POLICY_CONTRACT"
+                      },
+                      "value": "mail"
+                    },
+                    "SAML_SUBJECT": {
+                      "source": {
+                        "type": "AUTHENTICATION_POLICY_CONTRACT"
+                      },
+                      "value": "subject"
+                    },
+                    "lastname": {
+                      "source": {
+                        "type": "AUTHENTICATION_POLICY_CONTRACT"
+                      },
+                      "value": "lastName"
+                    }
+                  },
+                  "issuanceCriteria": {
+                    "conditionalCriteria": []
+                  },
+                  "authenticationPolicyContractRef": {
+                    "id": "samplePolicyContract",
+                    "location": "https://pingfederate-admin-facile-migration-assistant.ping-devops.com/pf-admin-api/v1/authenticationPolicyContracts/samplePolicyContract"
+                  },
+                  "restrictVirtualEntityIds": false,
+                  "restrictedVirtualEntityIds": [],
+                  "abortSsoTransactionAsFailSafe": false
+                }
+              ]
+            },
+            "applicationName": "Sample-SAML",
+            "connectionTargetType": "STANDARD"
+          },
+          {
+            "type": "SP",
+            "id": "Sample-SAML",
+            "name": "Sample SAML",
+            "entityId": "Sample-SAML",
+            "active": true,
+            "contactInfo": {},
+            "loggingMode": "STANDARD",
+            "virtualEntityIds": [],
+            "licenseConnectionGroup": "",
+            "credentials": {
+              "certs": [],
+              "signingSettings": {
+                "signingKeyPairRef": {
+                  "id": "signing-cert",
+                  "location": "https://pingfederate-admin-facile-migration-assistant.ping-devops.com/pf-admin-api/v1/keyPairs/signing/signing-cert"
+                },
+                "algorithm": "SHA256withRSA",
+                "includeCertInSignature": false,
+                "includeRawKeyInSignature": false
+              }
+            },
+            "extendedProperties": {
+              "authNexp": {
+                "values": [
+                  "Single_Factor"
+                ]
+              }
+            },
+            "modificationDate": "2024-06-10T02:16:24.808Z",
+            "creationDate": "2023-11-06T18:49:12.977Z",
+            "spBrowserSso": {
+              "protocol": "SAML20",
+              "enabledProfiles": [
+                "IDP_INITIATED_SSO"
+              ],
+              "alwaysSignArtifactResponse": false,
+              "ssoApplicationEndpoint": "https://facile-migration-assistant.ping-devops.com/idp/startSSO.ping?PartnerSpId=Sample-SAML",
+              "ssoServiceEndpoints": [
+                {
+                  "binding": "POST",
+                  "url": "https://decoder.pingidentity.cloud/saml",
+                  "isDefault": true,
+                  "index": 0
+                }
+              ],
+              "signAssertions": false,
+              "signResponseAsRequired": true,
+              "spSamlIdentityMapping": "STANDARD",
+              "requireSignedAuthnRequests": false,
+              "assertionLifetime": {
+                "minutesBefore": 5,
+                "minutesAfter": 5
+              },
+              "encryptionPolicy": {
+                "encryptAssertion": false,
+                "encryptSloSubjectNameId": false,
+                "sloSubjectNameIDEncrypted": false,
+                "encryptedAttributes": []
+              },
+              "attributeContract": {
+                "coreAttributes": [
+                  {
+                    "name": "SAML_SUBJECT",
+                    "nameFormat": "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"
+                  }
+                ],
+                "extendedAttributes": [
+                  {
+                    "name": "firstname",
+                    "nameFormat": "urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"
+                  },
+                  {
+                    "name": "ImmutableID",
+                    "nameFormat": "urn:oasis:names:tc:SAML:2.0:attrname-format:basic"
+                  },
+                  {
+                    "name": "mail",
+                    "nameFormat": "urn:oasis:names:tc:SAML:2.0:attrname-format:basic"
+                  },
+                  {
+                    "name": "lastname",
+                    "nameFormat": "urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"
+                  }
+                ]
+              },
+              "adapterMappings": [],
+              "authenticationPolicyContractAssertionMappings": [
+                {
+                  "attributeSources": [],
+                  "attributeContractFulfillment": {
+                    "firstname": {
+                      "source": {
+                        "type": "AUTHENTICATION_POLICY_CONTRACT"
+                      },
+                      "value": "firstName"
+                    },
+                    "ImmutableID": {
+                      "source": {
+                        "type": "AUTHENTICATION_POLICY_CONTRACT"
+                      },
+                      "value": "ImmutableID"
+                    },
+                    "mail": {
+                      "source": {
+                        "type": "AUTHENTICATION_POLICY_CONTRACT"
+                      },
+                      "value": "mail"
+                    },
+                    "SAML_SUBJECT": {
+                      "source": {
+                        "type": "AUTHENTICATION_POLICY_CONTRACT"
+                      },
+                      "value": "subject"
+                    },
+                    "lastname": {
+                      "source": {
+                        "type": "AUTHENTICATION_POLICY_CONTRACT"
+                      },
+                      "value": "lastName"
+                    }
+                  },
+                  "issuanceCriteria": {
+                    "conditionalCriteria": []
+                  },
+                  "authenticationPolicyContractRef": {
+                    "id": "samplePolicyContract",
+                    "location": "https://pingfederate-admin-facile-migration-assistant.ping-devops.com/pf-admin-api/v1/authenticationPolicyContracts/samplePolicyContract"
+                  },
+                  "restrictVirtualEntityIds": false,
+                  "restrictedVirtualEntityIds": [],
+                  "abortSsoTransactionAsFailSafe": false
+                }
+              ]
+            },
+            "applicationName": "Sample-SAML",
+            "connectionTargetType": "STANDARD"
+          }
+        ]
+      }
+    },
+    {
+      "action": "EXPORT",
+      "resourcePath": "/oauth/clients",
+      "payload": {
+        "items": [
+          {
+            "clientId": "ciamMobileApp",
+            "enabled": true,
+            "redirectUris": [
+              "https://facile-migration-assistant.ping-devops.com/pa/oidc/cb"
+            ],
+            "grantTypes": [
+              "IMPLICIT",
+              "AUTHORIZATION_CODE",
+              "RESOURCE_OWNER_CREDENTIALS",
+              "EXTENSION",
+              "DEVICE_CODE",
+              "ACCESS_TOKEN_VALIDATION",
+              "CIBA",
+              "TOKEN_EXCHANGE"
+            ],
+            "name": "CIAM Mobile App",
+            "description": "This client is used to perform OIDC logons with a Mobile App with CIAM Push capabilities",
+            "modificationDate": "2024-04-04T20:47:10.484Z",
+            "creationDate": "2023-11-06T18:49:14.362Z",
+            "refreshRolling": "SERVER_DEFAULT",
+            "refreshTokenRollingIntervalType": "SERVER_DEFAULT",
+            "persistentGrantExpirationType": "SERVER_DEFAULT",
+            "persistentGrantExpirationTime": 0,
+            "persistentGrantExpirationTimeUnit": "DAYS",
+            "persistentGrantIdleTimeoutType": "SERVER_DEFAULT",
+            "persistentGrantIdleTimeout": 0,
+            "persistentGrantIdleTimeoutTimeUnit": "DAYS",
+            "persistentGrantReuseType": "SERVER_DEFAULT",
+            "allowAuthenticationApiInit": false,
+            "bypassApprovalPage": true,
+            "restrictScopes": false,
+            "requirePushedAuthorizationRequests": false,
+            "requireJwtSecuredAuthorizationResponseMode": false,
+            "restrictedScopes": [],
+            "exclusiveScopes": [],
+            "restrictedResponseTypes": [],
+            "authorizationDetailTypes": [],
+            "restrictToDefaultAccessTokenManager": false,
+            "validateUsingAllEligibleAtms": false,
+            "oidcPolicy": {
+              "grantAccessSessionRevocationApi": false,
+              "grantAccessSessionSessionManagementApi": false,
+              "logoutMode": "NONE",
+              "pingAccessLogoutCapable": false,
+              "pairwiseIdentifierUserType": false
+            },
+            "clientAuth": {
+              "type": "NONE",
+              "secondarySecrets": []
+            },
+            "extendedParameters": {
+              "authNexp": {
+                "values": [
+                  "Multi_Factor"
+                ]
+              }
+            },
+            "deviceFlowSettingType": "SERVER_DEFAULT",
+            "requireProofKeyForCodeExchange": false,
+            "cibaDeliveryMode": "POLL",
+            "cibaPollingInterval": 3,
+            "cibaRequireSignedRequests": false,
+            "cibaUserCodeSupported": false,
+            "refreshTokenRollingGracePeriodType": "SERVER_DEFAULT",
+            "clientSecretRetentionPeriodType": "SERVER_DEFAULT",
+            "requireDpop": false,
+            "requireSignedRequests": false
+          },
+          {
+            "clientId": "dadmin",
+            "enabled": true,
+            "redirectUris": [
+              "https://facile-migration-assistant.ping-devops.com/delegator"
+            ],
+            "grantTypes": [
+              "IMPLICIT"
+            ],
+            "name": "Delegator",
+            "description": "This client is used to Authenticate to Delegator",
+            "modificationDate": "2024-04-04T18:21:51.134Z",
+            "creationDate": "2023-11-06T18:50:16.791Z",
+            "refreshRolling": "SERVER_DEFAULT",
+            "refreshTokenRollingIntervalType": "SERVER_DEFAULT",
+            "persistentGrantExpirationType": "SERVER_DEFAULT",
+            "persistentGrantExpirationTime": 0,
+            "persistentGrantExpirationTimeUnit": "DAYS",
+            "persistentGrantIdleTimeoutType": "SERVER_DEFAULT",
+            "persistentGrantIdleTimeout": 0,
+            "persistentGrantIdleTimeoutTimeUnit": "DAYS",
+            "persistentGrantReuseType": "SERVER_DEFAULT",
+            "allowAuthenticationApiInit": false,
+            "bypassApprovalPage": true,
+            "restrictScopes": false,
+            "requirePushedAuthorizationRequests": false,
+            "requireJwtSecuredAuthorizationResponseMode": false,
+            "restrictedScopes": [],
+            "exclusiveScopes": [
+              "urn:pingidentity:directory-delegated-admin"
+            ],
+            "restrictedResponseTypes": [],
+            "authorizationDetailTypes": [],
+            "restrictToDefaultAccessTokenManager": false,
+            "validateUsingAllEligibleAtms": false,
+            "oidcPolicy": {
+              "grantAccessSessionRevocationApi": false,
+              "grantAccessSessionSessionManagementApi": false,
+              "logoutMode": "NONE",
+              "pingAccessLogoutCapable": false,
+              "pairwiseIdentifierUserType": false
+            },
+            "clientAuth": {
+              "type": "NONE",
+              "secondarySecrets": []
+            },
+            "extendedParameters": {
+              "authNexp": {
+                "values": [
+                  "Internal"
+                ]
+              }
+            },
+            "deviceFlowSettingType": "SERVER_DEFAULT",
+            "requireProofKeyForCodeExchange": false,
+            "refreshTokenRollingGracePeriodType": "SERVER_DEFAULT",
+            "clientSecretRetentionPeriodType": "SERVER_DEFAULT",
+            "requireDpop": false,
+            "requireSignedRequests": false
+          },
+          {
+            "clientId": "Facile-ConsentEnforce",
+            "enabled": true,
+            "redirectUris": [
+              "https://facile-migration-assistant.ping-devops.com/pa/oidc/cb"
+            ],
+            "grantTypes": [
+              "IMPLICIT",
+              "AUTHORIZATION_CODE"
+            ],
+            "name": "Facile - Consent Enforcement",
+            "description": "This client is used to enable Redirectless logon to the PA-protected Consent Enforcement SPA",
+            "modificationDate": "2023-11-06T18:49:56.098Z",
+            "creationDate": "2023-11-06T18:49:56.105Z",
+            "refreshRolling": "SERVER_DEFAULT",
+            "refreshTokenRollingIntervalType": "SERVER_DEFAULT",
+            "persistentGrantExpirationType": "SERVER_DEFAULT",
+            "persistentGrantExpirationTime": 0,
+            "persistentGrantExpirationTimeUnit": "DAYS",
+            "persistentGrantIdleTimeoutType": "SERVER_DEFAULT",
+            "persistentGrantIdleTimeout": 0,
+            "persistentGrantIdleTimeoutTimeUnit": "DAYS",
+            "persistentGrantReuseType": "SERVER_DEFAULT",
+            "allowAuthenticationApiInit": true,
+            "bypassApprovalPage": true,
+            "restrictScopes": true,
+            "requirePushedAuthorizationRequests": false,
+            "requireJwtSecuredAuthorizationResponseMode": false,
+            "restrictedScopes": [
+              "address",
+              "email",
+              "openid",
+              "phone",
+              "profile"
+            ],
+            "exclusiveScopes": [
+              "urn:pingidentity:directory"
+            ],
+            "restrictedResponseTypes": [],
+            "authorizationDetailTypes": [],
+            "restrictToDefaultAccessTokenManager": false,
+            "validateUsingAllEligibleAtms": false,
+            "oidcPolicy": {
+              "grantAccessSessionRevocationApi": true,
+              "grantAccessSessionSessionManagementApi": true,
+              "logoutMode": "PING_FRONT_CHANNEL",
+              "pingAccessLogoutCapable": true,
+              "pairwiseIdentifierUserType": false
+            },
+            "clientAuth": {
+              "type": "SECRET",
+              "encryptedSecret": "OBF:JWE:eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2Iiwia2lkIjoiZm9Fb1NsanNCaiIsInZlcnNpb24iOiIxMS4zLjEuMCJ9..Oo7ZVgG1zupJt9nnP8FUvA.yHCkAZ_C_5Ve2TUqJ9BynyUV3cl6Gek9zJ-nl97Sxf3oDbRr-Np4m9GSy2rnhjqT6hOvQzYGOO95Hp9ASsZecLRLmdlBGh-XcFdGw4Nqf3w.1PAZV9Jd6TFaz7SgocQC6A",
+              "secondarySecrets": []
+            },
+            "extendedParameters": {
+              "authNexp": {
+                "values": [
+                  "Multi_Factor"
+                ]
+              }
+            },
+            "deviceFlowSettingType": "SERVER_DEFAULT",
+            "requireProofKeyForCodeExchange": true,
+            "refreshTokenRollingGracePeriodType": "SERVER_DEFAULT",
+            "clientSecretRetentionPeriodType": "SERVER_DEFAULT",
+            "clientSecretChangedTime": "2023-11-06T18:49:56.000Z",
+            "requireDpop": false,
+            "requireSignedRequests": false
+          },
+          {
+            "clientId": "Facile_PingAccess",
+            "enabled": true,
+            "redirectUris": [
+              "https://facile-migration-assistant.ping-devops.com/pa/oidc/cb"
+            ],
+            "grantTypes": [
+              "AUTHORIZATION_CODE"
+            ],
+            "name": "Facile - PingAccess",
+            "description": "This client is used by PingAccess to create Web Sessions for Facile Applications",
+            "modificationDate": "2023-11-06T18:50:04.166Z",
+            "creationDate": "2023-11-06T18:49:48.909Z",
+            "refreshRolling": "SERVER_DEFAULT",
+            "refreshTokenRollingIntervalType": "SERVER_DEFAULT",
+            "persistentGrantExpirationType": "SERVER_DEFAULT",
+            "persistentGrantExpirationTime": 0,
+            "persistentGrantExpirationTimeUnit": "DAYS",
+            "persistentGrantIdleTimeoutType": "SERVER_DEFAULT",
+            "persistentGrantIdleTimeout": 0,
+            "persistentGrantIdleTimeoutTimeUnit": "DAYS",
+            "persistentGrantReuseType": "SERVER_DEFAULT",
+            "allowAuthenticationApiInit": false,
+            "bypassApprovalPage": true,
+            "restrictScopes": false,
+            "requirePushedAuthorizationRequests": false,
+            "requireJwtSecuredAuthorizationResponseMode": false,
+            "restrictedScopes": [],
+            "exclusiveScopes": [
+              "urn:pingidentity:consent-priv",
+              "urn:pingidentity:consent-unpriv",
+              "urn:pingidentity:directory",
+              "urn:pingidentity:scim"
+            ],
+            "restrictedResponseTypes": [],
+            "authorizationDetailTypes": [],
+            "restrictToDefaultAccessTokenManager": false,
+            "validateUsingAllEligibleAtms": false,
+            "oidcPolicy": {
+              "grantAccessSessionRevocationApi": true,
+              "grantAccessSessionSessionManagementApi": true,
+              "logoutMode": "PING_FRONT_CHANNEL",
+              "pingAccessLogoutCapable": true,
+              "pairwiseIdentifierUserType": false
+            },
+            "clientAuth": {
+              "type": "SECRET",
+              "encryptedSecret": "OBF:JWE:eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2Iiwia2lkIjoiZm9Fb1NsanNCaiIsInZlcnNpb24iOiIxMS4zLjEuMCJ9..hj5e2AIoxwKAw6OwrlXG6w.4NsskruPQgmuYD5tHUZayupP9Jz5MKkVlDuaJeHXNubuApt9wda59hzb_eGoI8gPgSkctS-bCTmrP9XDbmDjqrxaf7yhbuPcfEvwzmo73-o.j1Zz8BRcMR_gJflvyHTmmQ",
+              "secondarySecrets": []
+            },
+            "extendedParameters": {
+              "authNexp": {
+                "values": [
+                  "Single_Factor"
+                ]
+              }
+            },
+            "deviceFlowSettingType": "SERVER_DEFAULT",
+            "requireProofKeyForCodeExchange": false,
+            "refreshTokenRollingGracePeriodType": "SERVER_DEFAULT",
+            "clientSecretRetentionPeriodType": "SERVER_DEFAULT",
+            "clientSecretChangedTime": "2023-11-06T18:49:48.000Z",
+            "requireDpop": false,
+            "requireSignedRequests": false
+          },
+          {
+            "clientId": "PingAdmin",
+            "enabled": true,
+            "redirectUris": [
+              "https://facile-migration-assistant.ping-devops.com/pingfederate/app?service=finishsso"
+            ],
+            "grantTypes": [
+              "IMPLICIT",
+              "AUTHORIZATION_CODE"
+            ],
+            "name": "Ping Admin",
+            "description": "This client is used to perform OIDC SSO logon to Ping Admin consoles",
+            "modificationDate": "2023-11-06T18:49:14.444Z",
+            "creationDate": "2023-11-06T18:49:14.451Z",
+            "refreshRolling": "SERVER_DEFAULT",
+            "refreshTokenRollingIntervalType": "SERVER_DEFAULT",
+            "persistentGrantExpirationType": "SERVER_DEFAULT",
+            "persistentGrantExpirationTime": 0,
+            "persistentGrantExpirationTimeUnit": "DAYS",
+            "persistentGrantIdleTimeoutType": "SERVER_DEFAULT",
+            "persistentGrantIdleTimeout": 0,
+            "persistentGrantIdleTimeoutTimeUnit": "DAYS",
+            "persistentGrantReuseType": "SERVER_DEFAULT",
+            "allowAuthenticationApiInit": false,
+            "bypassApprovalPage": true,
+            "restrictScopes": false,
+            "requirePushedAuthorizationRequests": false,
+            "requireJwtSecuredAuthorizationResponseMode": false,
+            "restrictedScopes": [],
+            "exclusiveScopes": [],
+            "restrictedResponseTypes": [],
+            "authorizationDetailTypes": [],
+            "restrictToDefaultAccessTokenManager": false,
+            "validateUsingAllEligibleAtms": false,
+            "oidcPolicy": {
+              "policyGroup": {
+                "id": "adminOIDCPolicy",
+                "location": "https://pingfederate-admin-facile-migration-assistant.ping-devops.com/pf-admin-api/v1/oauth/openIdConnect/policies/adminOIDCPolicy"
+              },
+              "grantAccessSessionRevocationApi": true,
+              "grantAccessSessionSessionManagementApi": true,
+              "logoutMode": "NONE",
+              "pingAccessLogoutCapable": false,
+              "pairwiseIdentifierUserType": false
+            },
+            "clientAuth": {
+              "type": "SECRET",
+              "encryptedSecret": "OBF:JWE:eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2Iiwia2lkIjoiZm9Fb1NsanNCaiIsInZlcnNpb24iOiIxMS4zLjEuMCJ9..1I18EcSbgRAzGavVo82jUA.1zMlcPxxGLq4S5xA5parPbBkZcMHeV5fJq7Z8ruN3um2kkxce-x_tqwh9HQv6x0iwvvmY9NT5JX0-PIQABjDI15GXq1hyt_71JFy0SYH0mE.lqAz1O3e2X_Zd2-OvVgqkw",
+              "secondarySecrets": []
+            },
+            "extendedParameters": {
+              "authNexp": {
+                "values": [
+                  "Internal"
+                ]
+              }
+            },
+            "deviceFlowSettingType": "SERVER_DEFAULT",
+            "requireProofKeyForCodeExchange": false,
+            "refreshTokenRollingGracePeriodType": "SERVER_DEFAULT",
+            "clientSecretRetentionPeriodType": "SERVER_DEFAULT",
+            "clientSecretChangedTime": "2023-11-06T18:49:14.000Z",
+            "requireDpop": false,
+            "requireSignedRequests": false
+          },
+          {
+            "clientId": "PingIntrospect",
+            "enabled": true,
+            "redirectUris": [],
+            "grantTypes": [
+              "CLIENT_CREDENTIALS"
+            ],
+            "name": "Ping Introspect",
+            "description": "This client is used to Introspect and validate PF-issued access_tokens",
+            "modificationDate": "2024-04-04T17:59:34.531Z",
+            "creationDate": "2023-11-06T18:49:14.603Z",
+            "refreshRolling": "SERVER_DEFAULT",
+            "refreshTokenRollingIntervalType": "SERVER_DEFAULT",
+            "persistentGrantExpirationType": "SERVER_DEFAULT",
+            "persistentGrantExpirationTime": 0,
+            "persistentGrantExpirationTimeUnit": "DAYS",
+            "persistentGrantIdleTimeoutType": "SERVER_DEFAULT",
+            "persistentGrantIdleTimeout": 0,
+            "persistentGrantIdleTimeoutTimeUnit": "DAYS",
+            "persistentGrantReuseType": "SERVER_DEFAULT",
+            "allowAuthenticationApiInit": false,
+            "bypassApprovalPage": false,
+            "restrictScopes": false,
+            "requirePushedAuthorizationRequests": false,
+            "requireJwtSecuredAuthorizationResponseMode": false,
+            "restrictedScopes": [],
+            "exclusiveScopes": [],
+            "restrictedResponseTypes": [],
+            "authorizationDetailTypes": [],
+            "restrictToDefaultAccessTokenManager": false,
+            "validateUsingAllEligibleAtms": true,
+            "oidcPolicy": {
+              "grantAccessSessionRevocationApi": false,
+              "grantAccessSessionSessionManagementApi": false,
+              "logoutMode": "NONE",
+              "pingAccessLogoutCapable": false,
+              "pairwiseIdentifierUserType": false
+            },
+            "clientAuth": {
+              "type": "SECRET",
+              "encryptedSecret": "OBF:JWE:eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2Iiwia2lkIjoiZm9Fb1NsanNCaiIsInZlcnNpb24iOiIxMS4zLjEuMCJ9..hdzS9Zr8VM2iFidFYbW57Q.G-QZuz5p2YSldQ2ozkuk4jTdDJ6RyhqGcFfe_VT_LTRZfveZ1rnSvEw1dxxxvJSZn5fL5fksul2YFNn5WlPlHTs4R_jvWGOcvx0IuPbcDwA.c8JgXewvNxegcKbM6w4IQA",
+              "secondarySecrets": []
+            },
+            "deviceFlowSettingType": "SERVER_DEFAULT",
+            "requireProofKeyForCodeExchange": false,
+            "refreshTokenRollingGracePeriodType": "SERVER_DEFAULT",
+            "clientSecretRetentionPeriodType": "SERVER_DEFAULT",
+            "clientSecretChangedTime": "2023-11-06T18:49:14.000Z",
+            "requireDpop": false,
+            "requireSignedRequests": false
+          },
+          {
+            "clientId": "PingLogon",
+            "enabled": true,
+            "redirectUris": [
+              "https://decoder.pingidentity.cloud/oidc",
+              "https://httpbin.org/anything",
+              "https://pratique.pingidentity.cloud/release/facile-migration-assistant",
+              "https://decoder.pingidentity.cloud/implicit"
+            ],
+            "grantTypes": [
+              "IMPLICIT",
+              "AUTHORIZATION_CODE"
+            ],
+            "name": "Ping Logon",
+            "description": "This client is used to perform OIDC logons - Experience managed with Extended Properties",
+            "modificationDate": "2023-11-06T18:49:30.153Z",
+            "creationDate": "2023-11-06T18:49:14.006Z",
+            "refreshRolling": "SERVER_DEFAULT",
+            "refreshTokenRollingIntervalType": "SERVER_DEFAULT",
+            "persistentGrantExpirationType": "SERVER_DEFAULT",
+            "persistentGrantExpirationTime": 0,
+            "persistentGrantExpirationTimeUnit": "DAYS",
+            "persistentGrantIdleTimeoutType": "SERVER_DEFAULT",
+            "persistentGrantIdleTimeout": 0,
+            "persistentGrantIdleTimeoutTimeUnit": "DAYS",
+            "persistentGrantReuseType": "SERVER_DEFAULT",
+            "allowAuthenticationApiInit": false,
+            "bypassApprovalPage": true,
+            "restrictScopes": false,
+            "requirePushedAuthorizationRequests": false,
+            "requireJwtSecuredAuthorizationResponseMode": false,
+            "restrictedScopes": [],
+            "exclusiveScopes": [
+              "urn:pingidentity:directory",
+              "urn:pingidentity:scim"
+            ],
+            "restrictedResponseTypes": [],
+            "authorizationDetailTypes": [],
+            "restrictToDefaultAccessTokenManager": false,
+            "validateUsingAllEligibleAtms": false,
+            "oidcPolicy": {
+              "grantAccessSessionRevocationApi": true,
+              "grantAccessSessionSessionManagementApi": true,
+              "logoutMode": "PING_FRONT_CHANNEL",
+              "pingAccessLogoutCapable": true,
+              "pairwiseIdentifierUserType": false
+            },
+            "clientAuth": {
+              "type": "SECRET",
+              "encryptedSecret": "OBF:JWE:eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2Iiwia2lkIjoiZm9Fb1NsanNCaiIsInZlcnNpb24iOiIxMS4zLjEuMCJ9..G0cyPYVY0FaN_fOXgZqCag.beAnrXKjjD2k2cnuadWIcrbEzPfSr_yg61A95fHkVemiWw_qmfsGEou160KZkpFzkNZZGbEMJyeSLw78JARfyFkAJtAgy6me5W92uXe9loE.CS1EhUg9_SOqiOHUVULNkA",
+              "secondarySecrets": []
+            },
+            "extendedParameters": {
+              "authNexp": {
+                "values": [
+                  "Multi_Factor"
+                ]
+              }
+            },
+            "deviceFlowSettingType": "SERVER_DEFAULT",
+            "requireProofKeyForCodeExchange": false,
+            "refreshTokenRollingGracePeriodType": "SERVER_DEFAULT",
+            "clientSecretRetentionPeriodType": "SERVER_DEFAULT",
+            "clientSecretChangedTime": "2023-11-06T18:49:13.000Z",
+            "requireDpop": false,
+            "requireSignedRequests": false
+          },
+          {
+            "clientId": "PingLogonWidget",
+            "enabled": true,
+            "redirectUris": [
+              "https://decoder.pingidentity.cloud/oidc",
+              "https://decoder.pingidentity.cloud/implicit"
+            ],
+            "grantTypes": [
+              "IMPLICIT",
+              "AUTHORIZATION_CODE"
+            ],
+            "name": "Ping Logon - Widget",
+            "description": "This client is used to perform OIDC logons - defaults to use the PF AuthN API Widget",
+            "modificationDate": "2023-11-06T18:49:14.200Z",
+            "creationDate": "2023-11-06T18:49:14.207Z",
+            "refreshRolling": "SERVER_DEFAULT",
+            "refreshTokenRollingIntervalType": "SERVER_DEFAULT",
+            "persistentGrantExpirationType": "SERVER_DEFAULT",
+            "persistentGrantExpirationTime": 0,
+            "persistentGrantExpirationTimeUnit": "DAYS",
+            "persistentGrantIdleTimeoutType": "SERVER_DEFAULT",
+            "persistentGrantIdleTimeout": 0,
+            "persistentGrantIdleTimeoutTimeUnit": "DAYS",
+            "persistentGrantReuseType": "SERVER_DEFAULT",
+            "allowAuthenticationApiInit": false,
+            "bypassApprovalPage": true,
+            "restrictScopes": false,
+            "requirePushedAuthorizationRequests": false,
+            "requireJwtSecuredAuthorizationResponseMode": false,
+            "restrictedScopes": [],
+            "exclusiveScopes": [],
+            "restrictedResponseTypes": [],
+            "authorizationDetailTypes": [],
+            "restrictToDefaultAccessTokenManager": false,
+            "validateUsingAllEligibleAtms": false,
+            "oidcPolicy": {
+              "grantAccessSessionRevocationApi": true,
+              "grantAccessSessionSessionManagementApi": true,
+              "logoutMode": "NONE",
+              "pingAccessLogoutCapable": false,
+              "pairwiseIdentifierUserType": false
+            },
+            "clientAuth": {
+              "type": "SECRET",
+              "encryptedSecret": "OBF:JWE:eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2Iiwia2lkIjoiZm9Fb1NsanNCaiIsInZlcnNpb24iOiIxMS4zLjEuMCJ9..A3yYyV011pSFuety7cMqvA.x8hl0schNNY5MH-1yvjztiwyNAJ7Z4f4-2vid98iPoejPKfSsDTZZ9F4m7d4kcDKytp2PM33QlCqcvAK1npSDmyG-DR5ysK1tAEX8zrsa5s.r0AaknYKHvSVU_ZLijbsBw",
+              "secondarySecrets": []
+            },
+            "extendedParameters": {
+              "authNexp": {
+                "values": [
+                  "Single_Factor"
+                ]
+              },
+              "useAuthApi": {
+                "values": [
+                  "y"
+                ]
+              }
+            },
+            "deviceFlowSettingType": "SERVER_DEFAULT",
+            "requireProofKeyForCodeExchange": false,
+            "refreshTokenRollingGracePeriodType": "SERVER_DEFAULT",
+            "clientSecretRetentionPeriodType": "SERVER_DEFAULT",
+            "clientSecretChangedTime": "2023-11-06T18:49:14.000Z",
+            "requireDpop": false,
+            "requireSignedRequests": false
+          },
+          {
+            "clientId": "PingOneLogon",
+            "enabled": true,
+            "redirectUris": [
+              "https://auth.pingone.com/2902048f-1d59-47e2-afa3-b2cd32074a7e/rp/callback/openid_connect"
+            ],
+            "grantTypes": [
+              "AUTHORIZATION_CODE"
+            ],
+            "name": "PingOne Logon",
+            "description": "This client is used to logon to PingOne App Portal - Experience managed with Extended Properties",
+            "modificationDate": "2023-11-06T18:49:14.117Z",
+            "creationDate": "2023-11-06T18:49:14.127Z",
+            "refreshRolling": "SERVER_DEFAULT",
+            "refreshTokenRollingIntervalType": "SERVER_DEFAULT",
+            "persistentGrantExpirationType": "SERVER_DEFAULT",
+            "persistentGrantExpirationTime": 0,
+            "persistentGrantExpirationTimeUnit": "DAYS",
+            "persistentGrantIdleTimeoutType": "SERVER_DEFAULT",
+            "persistentGrantIdleTimeout": 0,
+            "persistentGrantIdleTimeoutTimeUnit": "DAYS",
+            "persistentGrantReuseType": "SERVER_DEFAULT",
+            "allowAuthenticationApiInit": false,
+            "bypassApprovalPage": true,
+            "restrictScopes": false,
+            "requirePushedAuthorizationRequests": false,
+            "requireJwtSecuredAuthorizationResponseMode": false,
+            "restrictedScopes": [],
+            "exclusiveScopes": [],
+            "restrictedResponseTypes": [],
+            "authorizationDetailTypes": [],
+            "restrictToDefaultAccessTokenManager": false,
+            "validateUsingAllEligibleAtms": false,
+            "oidcPolicy": {
+              "grantAccessSessionRevocationApi": true,
+              "grantAccessSessionSessionManagementApi": true,
+              "logoutMode": "PING_FRONT_CHANNEL",
+              "pingAccessLogoutCapable": true,
+              "pairwiseIdentifierUserType": false
+            },
+            "clientAuth": {
+              "type": "SECRET",
+              "encryptedSecret": "OBF:JWE:eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2Iiwia2lkIjoiZm9Fb1NsanNCaiIsInZlcnNpb24iOiIxMS4zLjEuMCJ9..AlIscPJkIMDKYmZVa4XmIQ.eWqcuOD_FPCeZuCwRv4lHcvxlL8udrzlD5DwmcCipgkc6oA1DgKzfDlWMQPiZTGlYUydUcIt6nphr8kP339lZduXHGaP2owqdQC-MlRFIb0.Edqt9eKBKa56J_7GEEleOw",
+              "secondarySecrets": []
+            },
+            "extendedParameters": {
+              "authNexp": {
+                "values": [
+                  "Single_Factor"
+                ]
+              }
+            },
+            "deviceFlowSettingType": "SERVER_DEFAULT",
+            "requireProofKeyForCodeExchange": false,
+            "refreshTokenRollingGracePeriodType": "SERVER_DEFAULT",
+            "clientSecretRetentionPeriodType": "SERVER_DEFAULT",
+            "clientSecretChangedTime": "2023-11-06T18:49:14.000Z",
+            "requireDpop": false,
+            "requireSignedRequests": false
+          },
+          {
+            "clientId": "PingRedirectless",
+            "enabled": true,
+            "redirectUris": [
+              "https://decoder.pingidentity.cloud/oidc"
+            ],
+            "grantTypes": [
+              "IMPLICIT",
+              "AUTHORIZATION_CODE"
+            ],
+            "name": "Ping Redirectless",
+            "description": "This client is used to perform 1st Party AuthN API authentications",
+            "modificationDate": "2023-11-06T18:49:30.344Z",
+            "creationDate": "2023-11-06T18:49:14.284Z",
+            "refreshRolling": "SERVER_DEFAULT",
+            "refreshTokenRollingIntervalType": "SERVER_DEFAULT",
+            "persistentGrantExpirationType": "SERVER_DEFAULT",
+            "persistentGrantExpirationTime": 0,
+            "persistentGrantExpirationTimeUnit": "DAYS",
+            "persistentGrantIdleTimeoutType": "SERVER_DEFAULT",
+            "persistentGrantIdleTimeout": 0,
+            "persistentGrantIdleTimeoutTimeUnit": "DAYS",
+            "persistentGrantReuseType": "SERVER_DEFAULT",
+            "allowAuthenticationApiInit": true,
+            "bypassApprovalPage": true,
+            "restrictScopes": true,
+            "requirePushedAuthorizationRequests": false,
+            "requireJwtSecuredAuthorizationResponseMode": false,
+            "restrictedScopes": [
+              "address",
+              "email",
+              "openid",
+              "phone",
+              "profile"
+            ],
+            "exclusiveScopes": [],
+            "restrictedResponseTypes": [],
+            "authorizationDetailTypes": [],
+            "restrictToDefaultAccessTokenManager": false,
+            "validateUsingAllEligibleAtms": false,
+            "oidcPolicy": {
+              "grantAccessSessionRevocationApi": true,
+              "grantAccessSessionSessionManagementApi": true,
+              "logoutMode": "NONE",
+              "pingAccessLogoutCapable": false,
+              "pairwiseIdentifierUserType": false
+            },
+            "clientAuth": {
+              "type": "SECRET",
+              "encryptedSecret": "OBF:JWE:eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2Iiwia2lkIjoiZm9Fb1NsanNCaiIsInZlcnNpb24iOiIxMS4zLjEuMCJ9..w_YYlC_y1JyHOmoTewUQ0Q.Oaz7kkhFjiUAWidZFLbCSqxn73sMKSuEw3Q7VkdqfCCcSf1MVekhANd7tTnT0pFCVXtgEjsLEWtMYlskk0JAmfKtrZHlwEMCEJreBEiLXl8.cTUdRqXIMUgLVw20926AaA",
+              "secondarySecrets": []
+            },
+            "extendedParameters": {
+              "authNexp": {
+                "values": [
+                  "Multi_Factor"
+                ]
+              }
+            },
+            "deviceFlowSettingType": "SERVER_DEFAULT",
+            "requireProofKeyForCodeExchange": false,
+            "refreshTokenRollingGracePeriodType": "SERVER_DEFAULT",
+            "clientSecretRetentionPeriodType": "SERVER_DEFAULT",
+            "clientSecretChangedTime": "2023-11-06T18:49:14.000Z",
+            "requireDpop": false,
+            "requireSignedRequests": false
+          },
+          {
+            "clientId": "PingServices",
+            "enabled": true,
+            "redirectUris": [],
+            "grantTypes": [
+              "CLIENT_CREDENTIALS"
+            ],
+            "name": "Ping Services",
+            "description": "This client is used by Services to ask for API Tokens (Client_Credentials)",
+            "modificationDate": "2023-11-06T18:50:04.284Z",
+            "creationDate": "2023-11-06T18:49:14.526Z",
+            "refreshRolling": "SERVER_DEFAULT",
+            "refreshTokenRollingIntervalType": "SERVER_DEFAULT",
+            "persistentGrantExpirationType": "SERVER_DEFAULT",
+            "persistentGrantExpirationTime": 0,
+            "persistentGrantExpirationTimeUnit": "DAYS",
+            "persistentGrantIdleTimeoutType": "SERVER_DEFAULT",
+            "persistentGrantIdleTimeout": 0,
+            "persistentGrantIdleTimeoutTimeUnit": "DAYS",
+            "persistentGrantReuseType": "SERVER_DEFAULT",
+            "allowAuthenticationApiInit": false,
+            "bypassApprovalPage": true,
+            "restrictScopes": false,
+            "requirePushedAuthorizationRequests": false,
+            "requireJwtSecuredAuthorizationResponseMode": false,
+            "restrictedScopes": [],
+            "exclusiveScopes": [
+              "urn:pingidentity:consent-priv",
+              "urn:pingidentity:consent-unpriv",
+              "urn:pingidentity:directory",
+              "urn:pingidentity:register-client",
+              "urn:pingidentity:scim"
+            ],
+            "restrictedResponseTypes": [],
+            "authorizationDetailTypes": [],
+            "restrictToDefaultAccessTokenManager": false,
+            "validateUsingAllEligibleAtms": false,
+            "oidcPolicy": {
+              "grantAccessSessionRevocationApi": false,
+              "grantAccessSessionSessionManagementApi": false,
+              "logoutMode": "NONE",
+              "pingAccessLogoutCapable": false,
+              "pairwiseIdentifierUserType": false
+            },
+            "clientAuth": {
+              "type": "SECRET",
+              "encryptedSecret": "OBF:JWE:eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2Iiwia2lkIjoiZm9Fb1NsanNCaiIsInZlcnNpb24iOiIxMS4zLjEuMCJ9..-HLPAKwKQAo0G9efrhQqQA.XHozPaNITi-qXGFm-mDhLiMpjaa66DYacMFNZA9Ie7_utBNfSuItaBw2JPu4SXtMbzoYQd9pCJUUGoklIBjhxjrKlEP7pkHylECgJXnnjhM.PrbPnPbJCK-gWu-o_3pGRQ",
+              "secondarySecrets": []
+            },
+            "deviceFlowSettingType": "SERVER_DEFAULT",
+            "requireProofKeyForCodeExchange": false,
+            "refreshTokenRollingGracePeriodType": "SERVER_DEFAULT",
+            "clientSecretRetentionPeriodType": "SERVER_DEFAULT",
+            "clientSecretChangedTime": "2023-11-06T18:49:14.000Z",
+            "requireDpop": false,
+            "requireSignedRequests": false
+          },
+          {
+            "clientId": "resourceOwner",
+            "enabled": true,
+            "redirectUris": [],
+            "grantTypes": [
+              "CLIENT_CREDENTIALS"
+            ],
+            "name": "Resource Owner",
+            "modificationDate": "2024-04-04T18:00:51.238Z",
+            "creationDate": "2023-11-06T21:59:58.303Z",
+            "refreshRolling": "SERVER_DEFAULT",
+            "refreshTokenRollingIntervalType": "SERVER_DEFAULT",
+            "persistentGrantExpirationType": "SERVER_DEFAULT",
+            "persistentGrantExpirationTime": 0,
+            "persistentGrantExpirationTimeUnit": "DAYS",
+            "persistentGrantIdleTimeoutType": "SERVER_DEFAULT",
+            "persistentGrantIdleTimeout": 0,
+            "persistentGrantIdleTimeoutTimeUnit": "DAYS",
+            "persistentGrantReuseType": "SERVER_DEFAULT",
+            "allowAuthenticationApiInit": false,
+            "bypassApprovalPage": false,
+            "restrictScopes": false,
+            "requirePushedAuthorizationRequests": false,
+            "requireJwtSecuredAuthorizationResponseMode": false,
+            "restrictedScopes": [],
+            "exclusiveScopes": [],
+            "restrictedResponseTypes": [],
+            "authorizationDetailTypes": [],
+            "defaultAccessTokenManagerRef": {
+              "id": "jwtSample",
+              "location": "https://pingfederate-admin-facile-migration-assistant.ping-devops.com/pf-admin-api/v1/oauth/accessTokenManagers/jwtSample"
+            },
+            "restrictToDefaultAccessTokenManager": false,
+            "validateUsingAllEligibleAtms": false,
+            "oidcPolicy": {
+              "grantAccessSessionRevocationApi": false,
+              "grantAccessSessionSessionManagementApi": false,
+              "logoutMode": "NONE",
+              "pingAccessLogoutCapable": false,
+              "pairwiseIdentifierUserType": false
+            },
+            "clientAuth": {
+              "type": "SECRET",
+              "encryptedSecret": "OBF:JWE:eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2Iiwia2lkIjoiZm9Fb1NsanNCaiIsInZlcnNpb24iOiIxMS4zLjEuMCJ9..McYXZm88rCYGwRybGZWmRQ.MbGKtnvNYV4EdJded7afjcT63gQot1KuGNguaaKapqw5HO8o4PzDoNiI3xhplXYb3aOMC67qa6WoxDsiFUubGUjstnzI2qYMm6uRqMuPsL4.ETCv4OhSlRNXdggN6DT0Fg",
+              "secondarySecrets": []
+            },
+            "deviceFlowSettingType": "SERVER_DEFAULT",
+            "requireProofKeyForCodeExchange": false,
+            "refreshTokenRollingGracePeriodType": "SERVER_DEFAULT",
+            "clientSecretRetentionPeriodType": "SERVER_DEFAULT",
+            "clientSecretChangedTime": "2024-04-04T18:00:51.000Z",
+            "requireDpop": false,
+            "requireSignedRequests": false
+          },
+          {
+            "clientId": "Utile_PingAccess",
+            "enabled": true,
+            "redirectUris": [
+              "https://facile-migration-assistant.ping-devops.com/pa/oidc/cb"
+            ],
+            "grantTypes": [
+              "AUTHORIZATION_CODE"
+            ],
+            "name": "Foo Facile - PingAccess",
+            "description": "This client is used by PingAccess to create Web Sessions for the Utile App. This is pegged to the Internal AuthN Policy to remove the need for an Admin LIP connection",
+            "modificationDate": "2024-04-04T18:19:05.070Z",
+            "creationDate": "2023-11-06T18:49:48.974Z",
+            "refreshRolling": "SERVER_DEFAULT",
+            "refreshTokenRollingIntervalType": "SERVER_DEFAULT",
+            "persistentGrantExpirationType": "SERVER_DEFAULT",
+            "persistentGrantExpirationTime": 0,
+            "persistentGrantExpirationTimeUnit": "DAYS",
+            "persistentGrantIdleTimeoutType": "SERVER_DEFAULT",
+            "persistentGrantIdleTimeout": 0,
+            "persistentGrantIdleTimeoutTimeUnit": "DAYS",
+            "persistentGrantReuseType": "SERVER_DEFAULT",
+            "allowAuthenticationApiInit": false,
+            "bypassApprovalPage": true,
+            "restrictScopes": false,
+            "requirePushedAuthorizationRequests": false,
+            "requireJwtSecuredAuthorizationResponseMode": false,
+            "restrictedScopes": [],
+            "exclusiveScopes": [
+              "urn:pingidentity:directory",
+              "urn:pingidentity:scim"
+            ],
+            "restrictedResponseTypes": [],
+            "authorizationDetailTypes": [],
+            "restrictToDefaultAccessTokenManager": false,
+            "validateUsingAllEligibleAtms": false,
+            "oidcPolicy": {
+              "grantAccessSessionRevocationApi": true,
+              "grantAccessSessionSessionManagementApi": true,
+              "logoutMode": "PING_FRONT_CHANNEL",
+              "pingAccessLogoutCapable": true,
+              "pairwiseIdentifierUserType": false
+            },
+            "clientAuth": {
+              "type": "SECRET",
+              "encryptedSecret": "OBF:JWE:eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2Iiwia2lkIjoiZm9Fb1NsanNCaiIsInZlcnNpb24iOiIxMS4zLjEuMCJ9..lYJXuggcKQQykrc7VoYL5A.Sn2_xi7rszL1F3tR1VyV8SDG0Ef-m8hO7b1KInv5XZRWe59LT8f3kxjpdOlBKZIge2_h0aAUblwVzFHxlIlEklJs9D8oTckdJNtS1OXPBDA.e3iY8n5Q44Cipww-Gihe5Q",
+              "secondarySecrets": []
+            },
+            "extendedParameters": {
+              "authNexp": {
+                "values": [
+                  "Internal"
+                ]
+              }
+            },
+            "deviceFlowSettingType": "SERVER_DEFAULT",
+            "requireProofKeyForCodeExchange": false,
+            "refreshTokenRollingGracePeriodType": "SERVER_DEFAULT",
+            "clientSecretRetentionPeriodType": "SERVER_DEFAULT",
+            "clientSecretChangedTime": "2023-11-06T18:49:48.000Z",
+            "requireDpop": false,
+            "requireSignedRequests": false
+          }
+        ]
+      }
+    }
+  ]
+}
